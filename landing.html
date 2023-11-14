@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-    
+    <header class="header-container">
+        <nav>
+          <ul>
+            <li>
+              <a href="#Home"> Home</a>
+              <a href="#Search History"> Search History</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="row d-flex justify-content-center mt-4">
+        <div class="col-md-6">
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" id="userinput" placeholder="enter song lyrics">
+            <button class="btn btn-success" type="submit" id="submit-btn">Submit</button>
+          </form>
+        </div>
+
     <script src="./assets/landing.js"></script>
     <script src="./assets/results.js"></script>
     <script src="./assets/history.js"></script>
 </body>
+
 </html>
