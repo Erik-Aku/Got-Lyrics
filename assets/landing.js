@@ -10,29 +10,13 @@ function wikiSearchSubmit(event) {
 
     if (!userInputEl) {
         alert('Please enter music lyrics');
-        return
-    } else {
-        getWikiData(userInputEl);
+        return;
     }
+
+    var queryString = './results.html?q=' + userInputEl;
+
+    location.assign(queryString);
 }
-
-function getWikiData(userInput) {
-    // var apiUrl = 'https://www.mediawiki.org/w/api.php?action=opensearch&format=json&search=' + userInput;
-
-    var apiUrl = 'https://www.mediawiki.org/w/api.php?action=query&list=search&srsearch='+userInput+'&fromat=json';
-
-    fetch(apiUrl)
-    .then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
-            })
-        }
-    })
-
-
-}
-
 
 
 lyricInputEl.addEventListener('submit', wikiSearchSubmit);
