@@ -18,3 +18,37 @@ header li a {
     padding: 14px 20px;
     text-decoration: none;
 }
+
+.card {
+    display: flex;
+    place-content: center;
+}
+.container {
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 100px; 
+    height: 8vh;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 225px;
+    justify-content: center;
+  }
+  
+  form.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 600px;
+    border-radius: 60px;
+    padding: 10px 20px;
+    gap: 20px;
+    justify-content: center;
+    outline: none;
+  }
+
+  form.search-bar input {
+        display: flex;
+        border-color: none;
+  }
+
+
