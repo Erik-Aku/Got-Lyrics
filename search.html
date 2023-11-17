@@ -1,90 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!---FONTAWESOME-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!---BULMA-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
-        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>Search</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!---FONTAWESOME-->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!---BULMA-->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+            integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./assets/style.css">
+        <title>Search</title>
+    </head>
 
-<body>
-    <!--- navbar -->
-<body>
-    <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <i class="fa-sharp fa-solid fa-martini-glass-citrus fa-lg" style="color: #000000;"></i>
-                <i class="fa-regular fa-heart fa-sm px-1" style="color: #000000;"></i>
-                <i class="fa-solid fa-utensils fa-lg" style="color: #000000;"></i>
-            </a>
-        </div>
-        </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="field is-grouped">
-                    <p class="control">
-                        <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet"
-                            data-social-target="https://bulma.io" target="_blank"
-                            href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-                            <span class="icon">
-                                <i class="fa-sharp fa-solid fa-house fa-sm"></i>
-                            </span>
-                            <span>
-                                HOME
-                            </span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a class="button"
-                            href="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
-                            <span class="icon">
-                                <i class="fa-sharp fa-solid fa-heart fa-sm" style="color: #0042aa;"></i>
-                            </span>
-                            <span>FAVORITES</span>
-                        </a>
-                    </p>
+    <body>
+        <!--- navbar -->
+        <body>
+            <nav class="navbar is-transparent">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bulma.io">
+                        <i
+                            class="fa-sharp fa-solid fa-martini-glass-citrus fa-lg"
+                            style="color: #000000;"></i>
+                        <i class="fa-regular fa-heart fa-sm px-1"
+                            style="color: #000000;"></i>
+                        <i class="fa-solid fa-utensils fa-lg"
+                            style="color: #000000;"></i>
+                    </a>
                 </div>
             </div>
-        </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a class="bd-tw-button button"
+                                data-social-network="Twitter"
+                                data-social-action="tweet"
+                                data-social-target="https://bulma.io"
+                                target="_blank"
+                                href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-house fa-sm"></i>
+                                </span>
+                                <span>
+                                    HOME
+                                </span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a class="button"
+                                href="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
+                                <span class="icon">
+                                    <i class="fa-sharp fa-solid fa-heart fa-sm"
+                                        style="color: #0042aa;"></i>
+                                </span>
+                                <span>FAVORITES</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!--- user food and cocktail input-->
     <section class="section">
+        <form id="search-input-form">
         <div class="field" style="width: 20%;">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Please enter food...">
-              <span class="icon is-small is-left">
-              </span>
-              <span class="icon is-small is-right">
-              </span>
+                <input class="input" type="text"
+                    placeholder="Please enter food...">
+                <span class="icon is-small is-left">
+                </span>
+                <span class="icon is-small is-right">
+                </span>
             </p>
-          </div>
-          <div class="field " style="width: 20%;">
+        </div>
+        <div class="field " style="width: 20%;">
             <p class="control has-icons-left">
-              <input class="input" type="text" placeholder="Please enter a cocktaill...">
-              <span class="icon is-small is-left">
-              </span>
+                <input  id="cocktail-input" class="input" type="text"
+                    placeholder="Please enter a cocktaill...">
+                <span class="icon is-small is-left">
+                </span>
             </p>
-          </div>
-          <div class="field">
+        </div>
+        <div class="field">
             <p class="control level-left">
-              <button class="button is-success">
-                Submit
-              </button>
+                <button class="button is-success" type="submit">
+                    Submit
+                </button>
             </p>
-          </div>
-
-    <script src="./assets/results.js"></script>
-</body>
+        </div>
+        </form>
+    </section>
+        <section id="cocktail-section">
+            <div id="cocktail-container"></div>
+        </section>
+        <script src="./assets/results.js"></script>
+    </body>
 
 </html>
