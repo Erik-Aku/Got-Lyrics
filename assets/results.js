@@ -27,13 +27,12 @@ function searchSubmit(event) {
     console.log(cocktailInput)
 
     if (!cocktailInput) {
-        alert('Please enter music lyrics');
+        alert('Please enter a cocktail');
         return;
     } else {
         getCocktailData(cocktailInput);
+        cocktailContainerEl.textContent = "";
     }
-
-
 }
 
 function getCocktailData(userInput) {
@@ -70,29 +69,66 @@ for (var i = 0; i < data.length; i++) {
     console.log(data[i])
 
     var cardDivEl = document.createElement('div');
-    cardDivEl.classList='card-div'
-    cardDivEl.style.cssText="border: solid; width:400px; height:200px;";
+    cardDivEl.classList='card-div';
+    cardDivEl.style.cssText="border: solid; width:400px; margin:10px;";
     cocktailGroupDiv.appendChild(cardDivEl);
 
     var cardBodyDiv = document.createElement('div');
-    cardBodyDiv.classList='card-body'
-    cardBodyDiv.style.cssText="width: 400px;";
+    cardBodyDiv.classList='card-body';
+    cardBodyDiv.style.cssText="width: 400px; padding:10px;";
     cardDivEl.appendChild(cardBodyDiv);
+
+    var cardTitle = document.createElement('h2');
+    cardTitle.classList='card-title';
+    cardTitle.style.cssText="padding: 1px; font-weight: 400; margin:1px";
+    cardTitle.textContent=data[i].name;
+    cardBodyDiv.appendChild(cardTitle);
+
+    var instructionsTitle = document.createElement('h3');
+    instructionsTitle.classList='instructions-title';
+    instructionsTitle.textContent = 'Instructions:';
+    instructionsTitle.style.cssText="padding: 1px; font-weight: bold; margin-top:10px";
+    cardBodyDiv.appendChild(instructionsTitle);
+
+    var instructionsPEl = document.createElement('p');
+    instructionsPEl.classList='instructions';
+    instructionsPEl.textContent = data[i].instructions;
+    cardBodyDiv.appendChild(instructionsPEl);
+
+    var ingredientsTitle = document.createElement('h3');
+    ingredientsTitle.classList='ingredients-title';
+    ingredientsTitle.textContent = 'Ingredients:';
+    ingredientsTitle.style.cssText="font-weight: bold; margin-top:10px;";
+    cardBodyDiv.appendChild(ingredientsTitle);
+
+    var cardBodyUl = document.createElement('ul');
+    cardBodyUl.classList="card-body-ul";
+    cardBodyDiv.appendChild(cardBodyUl);
+
 
     for (var j=0; j < data[i].ingredients.length; j++) {
         console.log(data[i].ingredients[j])
+
+        var ingredientsLi = document.createElement('li');
+        ingredientsLi.classList='ingredients';
+        ingredientsLi.style.cssText='padding:5px;'
+        ingredientsLi.textContent = data[i].ingredients[j];
+        cardBodyUl.appendChild(ingredientsLi);
+
     }
    
-
-
     console.log(data[i].name)
     console.log(data[i].instructions)
+       // save data result data to local storage
+       var name = data[i].name;
+       var instructionsList = data[i].instructions;
+       storeData.push({name, instructionsList});
+       console.log(storeData)
+       localStorage.setItem("event", JSON.stringify(storeData));
+       
 }
 
-
-
-
-
+ 
 }
 
 getParams();
