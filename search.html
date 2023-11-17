@@ -70,6 +70,7 @@
 
     <!--- user food and cocktail input-->
     <section class="section">
+        <form id="search-input-form">
         <div class="field" style="width: 20%;">
             <p class="control has-icons-left has-icons-right">
                 <input class="input" type="text"
@@ -82,7 +83,7 @@
         </div>
         <div class="field " style="width: 20%;">
             <p class="control has-icons-left">
-                <input class="input" type="text"
+                <input  id="cocktail-input" class="input" type="text"
                     placeholder="Please enter a cocktaill...">
                 <span class="icon is-small is-left">
                 </span>
@@ -90,11 +91,13 @@
         </div>
         <div class="field">
             <p class="control level-left">
-                <button class="button is-success">
+                <button class="button is-success" type="submit">
                     Submit
                 </button>
             </p>
         </div>
+        </form>
+    </section>
         <section id="cocktail-section">
             <div id="cocktail-container"></div>
         </section>

@@ -1,4 +1,4 @@
-var landingInputEl = document.querySelector('#lyric-form');
+var landingInputEl = document.querySelector('#dinner-theme');
 
 
 
@@ -13,7 +13,7 @@ function landingSubmit(event) {
         return;
     }
 
-    var queryString = './results.html?q=' + userInputEl;
+    var queryString = './search.html?q=' + userInputEl;
 
     location.assign(queryString);
 }

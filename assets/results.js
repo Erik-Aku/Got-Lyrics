@@ -1,4 +1,7 @@
 var cocktailContainerEl = document.querySelector('#cocktail-container')
+var searchFormEl = document.querySelector('#search-input-form')
+
+var storeData = [];
 
 
 
@@ -8,16 +11,33 @@ function getParams() {
     console.log(searchParamsArr)
 
     var query = searchParamsArr[0].split('=').pop();
-    console.log(query)
+    // console.log(query)
 
-saveLandingPageInput(query);    
+    storeData.push({query});
+    // console.log(storeData)
+
+    // save user in put to share local storage array
+    localStorage.setItem("event", JSON.stringify(storeData));
 }
 
-function saveLandingPageInput(userInput) {
-// save user input to shared array for local storage
+function searchSubmit(event) {
+    event.preventDefault();
+
+    var cocktailInput = document.querySelector('#cocktail-input').value;
+    console.log(cocktailInput)
+
+    if (!cocktailInput) {
+        alert('Please enter music lyrics');
+        return;
+    } else {
+        getCocktailData(cocktailInput);
+    }
+
+
 }
 
 function getCocktailData(userInput) {
+    // console.log(userInput)
     var apiUrl = 'https://api.api-ninjas.com/v1/cocktail?name='+userInput;
     var options = {
         method: 'GET',
@@ -39,8 +59,9 @@ function getCocktailData(userInput) {
 }
 
 function displayCocktailData(data) {
-    var cocktailDiv = document.createElement('div')
-    cocktailContainerEl.appendChild(cocktailDiv);
+    var cocktailGroupDiv = document.createElement('div')
+    cocktailGroupDiv.classList="card-group";
+    cocktailContainerEl.appendChild(cocktailGroupDiv);
 
     console.log(data)
 
@@ -48,12 +69,24 @@ function displayCocktailData(data) {
 for (var i = 0; i < data.length; i++) {
     console.log(data[i])
 
+    var cardDivEl = document.createElement('div');
+    cardDivEl.classList='card-div'
+    cardDivEl.style.cssText="border: solid; width:400px; height:200px;";
+    cocktailGroupDiv.appendChild(cardDivEl);
+
+    var cardBodyDiv = document.createElement('div');
+    cardBodyDiv.classList='card-body'
+    cardBodyDiv.style.cssText="width: 400px;";
+    cardDivEl.appendChild(cardBodyDiv);
+
     for (var j=0; j < data[i].ingredients.length; j++) {
         console.log(data[i].ingredients[j])
     }
+   
+
+
     console.log(data[i].name)
     console.log(data[i].instructions)
-
 }
 
 
@@ -61,15 +94,13 @@ for (var i = 0; i < data.length; i++) {
 
 
 }
-
-
-
-
-
-
-
 
 getParams();
+
+searchFormEl.addEventListener('submit', searchSubmit);
+
+
+
 
     // data.forEach(d => {
     //     for (let key in d) {
