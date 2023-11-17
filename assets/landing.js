@@ -1,8 +1,8 @@
-var lyricInputEl = document.querySelector('#lyric-form');
+var landingInputEl = document.querySelector('#lyric-form');
 
 
 
-function wikiSearchSubmit(event) {
+function landingSubmit(event) {
     event.preventDefault();
 
     var userInputEl = document.querySelector('#userinput').value;
@@ -19,4 +19,4 @@ function wikiSearchSubmit(event) {
 }
 
 
-lyricInputEl.addEventListener('submit', wikiSearchSubmit);
+landingInputEl.addEventListener('submit', landingSubmit);

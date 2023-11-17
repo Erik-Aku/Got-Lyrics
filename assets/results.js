@@ -1,6 +1,6 @@
 var cocktailContainerEl = document.querySelector('#cocktail-container')
 
-var ingredientsIndex = 0;
+
 
 
 function getParams() {
@@ -10,7 +10,11 @@ function getParams() {
     var query = searchParamsArr[0].split('=').pop();
     console.log(query)
 
-getCocktailData(query);    
+saveLandingPageInput(query);    
+}
+
+function saveLandingPageInput(userInput) {
+// save user input to shared array for local storage
 }
 
 function getCocktailData(userInput) {
@@ -41,28 +45,24 @@ function displayCocktailData(data) {
     console.log(data)
 
 
-    // for (var i = 0; i < data.length; i++) {
-    //     // var cocktail = data[i];
-   
-    // }
-    // }
+for (var i = 0; i < data.length; i++) {
+    console.log(data[i])
 
-    data.forEach(d => {
-        for (let key in d) {
-            // console.log(`${key}: ${d[key]}`)
-            // console.log(d.ingredients)
-             console.log(d[key])
-            //  cocktailDiv.textContent=`${key}: ${d[key]}`
-             cocktailDiv.textContent= d.ingredients
-        }
-    })
+    for (var j=0; j < data[i].ingredients.length; j++) {
+        console.log(data[i].ingredients[j])
+    }
+    console.log(data[i].name)
+    console.log(data[i].instructions)
+
+}
+
+
+
 
 
 }
 
-    // for (var j = 0; j < data[i].ingredients.length; j++ ) {
-            
-        // }
+
 
 
 
@@ -70,3 +70,28 @@ function displayCocktailData(data) {
 
 
 getParams();
+
+    // data.forEach(d => {
+    //     for (let key in d) {
+    //         // console.log(`${key}: ${d[key]}`)
+    //         // console.log(d.ingredients)
+    //          console.log(d[key])
+    //         //  cocktailDiv.textContent=`${key}: ${d[key]}`
+
+    //         var ingredientsDiv = document.createElement('div')
+    //         ingredientsDiv.textContent = d.ingredients
+    //         cocktailDiv.appendChild(ingredientsDiv)
+    //          cocktailDiv.textContent= d.ingredients
+
+    //         //  create div elements for each and text content to see if it gets displayed.
+    //     }
+    // })
+
+
+    //     for (var i = 0; i < data.length; i++) {
+//         // var cocktail = data[i];
+//         for (var j = 0; j < data[i].ingredients.length; j++ ) {
+//             var ingredients = data[i].ingredients[j];
+//         }
+//    console.log(ingredients)
+//     }
